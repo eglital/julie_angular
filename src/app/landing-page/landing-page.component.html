@@ -1,0 +1,29 @@
+<div class='container'>
+    <div class='row'>
+        <div>
+            <p>Placeholder for Hero</p>
+            <form #landingPageForm="ngForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <label for="startingLocation">Starting/Ending</label>
+                    <input type="text" id="startingLocation" required [(ngModel)]="model.startingLocation" name="startingLocation" placeholder="Enter your location">
+                </div>
+                <div>
+                    <label for="startingTime">Start Time</label>
+                    <input required [(ngModel)]="model.startTime" type="text" id="startingTime" name="startingTime">
+                </div>
+                <div>
+                    <label for="endingTime">End Time</label>
+                    <input required [(ngModel)]="endTime" type="text" name="endingTime" id="endingTime">
+                    <p>needs tooltip</p>
+                </div>
+                
+                <div>
+                    <input [(ngModel)]="model.transportation" type="radio" name="transportation" value="driving"> driving
+                    <input [(ngModel)]="model.transportation" type="radio" name="transportation" value="walking"> walking
+                </div>
+
+                <button type="submit" [disabled]="!landingPageForm.form.valid">Get Planning!</button>
+            </form>
+        </div>
+    </div>
+</div>
