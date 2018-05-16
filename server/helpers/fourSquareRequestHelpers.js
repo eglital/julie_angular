@@ -99,6 +99,7 @@ function buildListOfChoices(data) {
   ];
   const completeDict = {};
   return data.map((activityType, index) => {
+    console.log(activityType)
     data = activityType.response.groups[0].items;
 
     let array = [];

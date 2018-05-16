@@ -20,7 +20,7 @@ const {
 
 router.post("/itinerary/start", (req, res, next) => {
   console.log("starting itinerary");
-  initialFourSquareRequest(req.body.formSubmission, next)
+  initialFourSquareRequest(req.body, next)
     .then(responseObject => {
       res.send(responseObject);
     })
