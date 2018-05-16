@@ -5,7 +5,7 @@
             <form #landingPageForm="ngForm" (ngSubmit)="onSubmit()">
                 <div>
                     <label for="startingLocation">Starting/Ending</label>
-                    <input type="text" id="startingLocation" required [(ngModel)]="model.startingLocation" name="startingLocation" placeholder="Enter your location">
+                    <input type="text" id="startingLocation" name="startingLocation" placeholder="Use your current location" required='false' disabled>
                 </div>
                 <div>
                     <label for="startingTime">Start Time</label>

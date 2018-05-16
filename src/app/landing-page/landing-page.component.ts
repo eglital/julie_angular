@@ -15,8 +15,19 @@ export class LandingPageComponent implements OnInit {
   error: string;
 
   onSubmit = () => {
-    console.log('submitted', this.model)
-    this.fetchLocations(this.model)
+     if (navigator.geolocation) {
+       console.log('navigator')
+      let p = new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(position => {
+        resolve([position.coords.latitude, position.coords.longitude]);
+      }, reject)
+    });
+      p.then(coordinates => {
+        this.model.startingLocation = coordinates;
+        console.log('submitted', this.model)
+        this.fetchLocations(this.model);
+      })
+    }
   }
 
   fetchLocations(landingPage: LandingPage): void {
@@ -34,11 +45,6 @@ export class LandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.model.startingLocation = [position.coords.latitude, position.coords.longitude]
-      })
-    }
   }
 
 }
