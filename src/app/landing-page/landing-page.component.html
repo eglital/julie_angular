@@ -9,7 +9,9 @@
                 </div>
                 <div>
                     <label for="startingTime">Start Time</label>
-                    <input required [(ngModel)]="model.startTime" type="text" id="startingTime" name="startingTime">
+                    <select required id="startingTime" name="startingTime">
+                        <option *ngFor="let opt of timeOptions" [(ngModel)]="model.startTime">{{opt}}</option>
+                    </select>
                 </div>
                 <div>
                     <label for="endingTime">End Time</label>

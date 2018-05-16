@@ -10,9 +10,14 @@ import { LocationsDataService } from '../locations-data.service'
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-  model = new LandingPage('', '', '', 'driving', ['sights'])
+  model = new LandingPage([], '', '', 'driving', ['sights'])
   locationsData: LocationsData;
   error: string;
+  timeOptions: object;
+
+  getTimeOptions = () => {
+    
+  }
 
   onSubmit = () => {
      if (navigator.geolocation) {
