@@ -1,7 +1,7 @@
 export class LandingPage {
 
   constructor(
-    public startingLocation: string,
+    public startingLocation: any,
     public startTime: string,
     public endTime: string,
     public transportation: string,

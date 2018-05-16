@@ -36,9 +36,8 @@ export class LocationsDataService {
 
 
   fetchLocations (landingPage): Observable<any> {
-    // return this.http.post<LocationsData>(this.fetchLocationsUrl, landingPage, httpOptions)
-    //   .pipe(
-    //     catchError(this.handleError)
+    return this.http.post<LocationsData>(this.fetchLocationsUrl, landingPage, httpOptions)
+
   }
 
 }

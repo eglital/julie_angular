@@ -10,7 +10,7 @@ import { LocationsDataService } from '../locations-data.service'
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-  model = new LandingPage('', '', '', 'driving', ['sigths'])
+  model = new LandingPage('', '', '', 'driving', ['sights'])
   locationsData: LocationsData;
   error: string;
 
@@ -21,8 +21,12 @@ export class LandingPageComponent implements OnInit {
 
   fetchLocations(landingPage: LandingPage): void {
     this.locationsDataService.fetchLocations(landingPage)
-      .subscribe(locationsData => this.locationsData = locationsData,
+      .subscribe(locationsData => {
+        this.locationsData = locationsData;
+        console.log(this.locationsData)
+      },
         error => this.error = error)
+
   }
 
   constructor(
@@ -30,6 +34,11 @@ export class LandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.model.startingLocation = [position.coords.latitude, position.coords.longitude]
+      })
+    }
   }
 
 }
